@@ -7,8 +7,7 @@ from random import randint
 class Wuerfel(object):
     def __init__(self):
         self.augen = randint(1, 6)
-
-    def werfen(self):
+def werfen(self):
         self.augen = randint(1, 6)
 
     def getAugen(self):
@@ -59,4 +58,3 @@ for i in range(5):
     print('Punktestand', spieler1.getName(), ':', spieler1.getPunkte())
     print('Punktestand', spieler2.getName(), ':', spieler2.getPunkte())
     print('Punktestand', spieler3.getName(), ':', spieler3.getPunkte())
-    print()
