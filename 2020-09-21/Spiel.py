@@ -58,3 +58,4 @@ for i in range(5):
     print('Punktestand', spieler1.getName(), ':', spieler1.getPunkte())
     print('Punktestand', spieler2.getName(), ':', spieler2.getPunkte())
     print('Punktestand', spieler3.getName(), ':', spieler3.getPunkte())
+    print()
