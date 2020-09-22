@@ -7,7 +7,7 @@ from random import randint
 class Wuerfel(object):
     def __init__(self):
         self.augen = randint(1, 6)
-def werfen(self):
+    def werfen(self):
         self.augen = randint(1, 6)
 
     def getAugen(self):
