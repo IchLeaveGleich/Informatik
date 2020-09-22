@@ -9,7 +9,6 @@ class Wuerfel(object):
         self.augen = randint(1, 6)
     def werfen(self):
         self.augen = randint(1, 6)
-
     def getAugen(self):
         return self.augen
 
