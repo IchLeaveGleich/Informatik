@@ -5,7 +5,7 @@ class Konto(object):
     def einzahlen(self, betrag):
         self.stand += betrag
 
-    def auzahlen(self, betrag):
+    def auszahlen(self, betrag):
         if (self.stand - betrag) >= 0:
             self.stand -= betrag
         else:

@@ -1,6 +1,6 @@
 from Spieler import Spieler
 from Wuerfel import Wuerfel
-from Spielfeld import Spieler
+from Spielfeld import Spielfeld
 
 class Spielanbieter(object):
     def __init__(self):
@@ -22,9 +22,35 @@ class Spielanbieter(object):
         else:
             self.spielerAnReihe += 1
             
-    def gewinnAuszahlung(self):
+    def gewinnAuszahlen(self):
         richtige = 0
         for i in self.wuerfelListe:
             if i.getAugen() == self.spielfeld.getGesetzteZahl():
                 richtige += 1
-        self.spielerListe[self.spielAnReihe].einzahlen(1 * richtige)
+        self.spielerListe[self.spielerAnReihe].sKonto.einzahlen(1 * richtige)
+
+#----------------------------------------
+# Test
+#----------------------------------------
+
+# Erzeugung und Verbindung der Objekte
+# ...
+s = Spielanbieter()
+s.spielerErzeugen()
+s.spielerErzeugen()
+s.spielerErzeugen()
+
+
+# Ausgabe
+print('Wuerfel: ', s.wuerfel1.getAugen(), s.wuerfel2.getAugen(), s.wuerfel3.getAugen())
+print('Konto  : ', s.spielerListe[s.spielerAnReihe].sKonto.getStand())
+print()
+
+# Durchführung des Spiels 
+for i in range(10):
+    s.spielerListe[s.spielerAnReihe].spielen(2)
+    s.gewinnAuszahlen()
+    # Ausgabe
+    print('Wuerfel: ', s.wuerfel1.getAugen(), s.wuerfel2.getAugen(), s.wuerfel3.getAugen())
+    print('Konto  : ', s.spielerListe[s.spielerAnReihe].sKonto.getStand())
+    print()

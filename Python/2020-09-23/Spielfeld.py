@@ -2,7 +2,7 @@ class Spielfeld(object):
     def __init__(self):
         self.gesetzteZahl = 0
 
-    def setzten(self, zahl):
+    def setzen(self, zahl):
         self.gesetzteZahl = zahl
 
     def getGesetzteZahl(self):

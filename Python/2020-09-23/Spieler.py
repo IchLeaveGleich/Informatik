@@ -2,8 +2,8 @@ from Konto import Konto
 from Spielfeld import Spielfeld
 
 class Spieler(object):
-    def __init__(self, wuerfel1, wuerfel2. wuerfel3, spielfeld):
-        self.sKonto = Konto()
+    def __init__(self, wuerfel1, wuerfel2, wuerfel3, spielfeld):
+        self.sKonto = Konto(50)
         self.wuerfel1 = wuerfel1
         self.wuerfel2 = wuerfel2
         self.wuerfel3 = wuerfel3
