@@ -16,9 +16,9 @@ class Spielanbieter(object):
         self.spielerListe.append(Spieler(self.wuerfel1, self.wuerfel2, self.wuerfel3, self.spielfeld))
 
     def naechsterSpieler(self):
-        self.spielerListe[self.spielerAnReihe].spielen()
-        if len(self.spielerListe) >= spielerAnReihe + 1:
-            self.spielerAnReihen = 0
+        self.spielerListe[self.spielerAnReihe].spielen(2)
+        if len(self.spielerListe) <= self.spielerAnReihe + 1:
+            self.spielerAnReihe = 0
         else:
             self.spielerAnReihe += 1
             
@@ -42,15 +42,17 @@ s.spielerErzeugen()
 
 
 # Ausgabe
-print('Wuerfel: ', s.wuerfel1.getAugen(), s.wuerfel2.getAugen(), s.wuerfel3.getAugen())
-print('Konto  : ', s.spielerListe[s.spielerAnReihe].sKonto.getStand())
-print()
+#print('Wuerfel: ', s.wuerfel1.getAugen(), s.wuerfel2.getAugen(), s.wuerfel3.getAugen())
+#print('Konto  : ', s.spielerListe[s.spielerAnReihe].sKonto.getStand())
+#print()
 
 # Durchführung des Spiels 
-for i in range(10):
+for i in range(100):
     s.spielerListe[s.spielerAnReihe].spielen(2)
     s.gewinnAuszahlen()
     # Ausgabe
+    print("Spieler", s.spielerListe[s.spielerAnReihe])
     print('Wuerfel: ', s.wuerfel1.getAugen(), s.wuerfel2.getAugen(), s.wuerfel3.getAugen())
     print('Konto  : ', s.spielerListe[s.spielerAnReihe].sKonto.getStand())
     print()
+    s.naechsterSpieler()

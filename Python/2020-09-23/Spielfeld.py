@@ -1,6 +1,6 @@
 class Spielfeld(object):
     def __init__(self):
-        self.gesetzteZahl = 0
+        self.gesetzteZahl = None
 
     def setzen(self, zahl):
         self.gesetzteZahl = zahl
