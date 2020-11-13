@@ -7,6 +7,7 @@ class Spielanbieter(object):
         self.wuerfelListe = [Wuerfel(), Wuerfel(), Wuerfel()]
         self.spielerListe = []
         self.spielfeld = Spielfeld()
+        self.spielerAnReihe = 1
 
 
     def naechsterSpieler(self):

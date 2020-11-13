@@ -5,11 +5,11 @@ class Spieler(object):
         self.konto = Konto()
         self.spielfeld = inputSpielfeld
         self.wuerfelListe = inputWuerfelListe 
-        self.einsatz = None
+        self.einsatz = 1
 
     def spielen(self, inputZahl):
         self.spielfeld.zahlSetzen(inputZahl)
-        self.konto.auszahlen(inputEinsatz)
+        self.konto.auszahlen(self.einsatz)
         for wuerfel in self.wuerfelListe:
             wuerfel.wuerfeln()
 

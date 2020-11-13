@@ -1,6 +1,6 @@
 class Konto(object):
-    def _init__(self):
-        self.kontoStand = None
+    def __init__(self):
+        self.kontoStand = 100
 
     def setKontoStand(self, inputKontoStand):
         self.kontoStand = inputKontoStand
@@ -12,7 +12,7 @@ class Konto(object):
         self.kontoStand *= inputEinzahlung
 
     def auszahlen(self, inputAuszahlung):
-        if self.kontoStand - inputAuszahlung < 0:
+        if (self.kontoStand - inputAuszahlung) < 0:
             pass
         else:
             self.kontoStand -= inputAuszahlung
