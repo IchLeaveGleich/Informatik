@@ -16,7 +16,7 @@ class CD(Speichermedium):
         self.__liednummer = 0
 
     def getTitle(self):
-        return self.title
+        return self.__titel
 
     def naechstesLied(self):
         pass
