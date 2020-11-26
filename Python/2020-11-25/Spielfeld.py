@@ -5,5 +5,5 @@ class Spielfeld(object):
     def setzen(self, zahl):
         self.gesetzteZahl = zahl
 
-    def getGestzteZahl(self):
+    def getGesetzteZahl(self):
         return self.gesetzteZahl
