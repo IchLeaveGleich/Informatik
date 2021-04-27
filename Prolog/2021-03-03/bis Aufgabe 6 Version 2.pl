@@ -121,3 +121,25 @@ ohne_letztes_element([K], []).
 ohne_letztes_element([K|R], [K|R2]) :- ohne_letztes_element(R, R2).
 
 fahrt_abwaerts(STADT, STADT2, F) :- alleStaedteAmFlussVonStadt(STADT, STADTLISTE),teilliste_von_element_bis_element(STADTLISTE, STADT, STADT2, F).
+
+fahrt_aufwaerts(STADT, STADT2, L) :- fahrt_abwaerts(STADT2, STADT, F), umkehren(F, L). 
+
+fahrt(S1,S2,L) :- liegen_flussabwaerts(S1,S2), fahrt_abwaerts(S1,S2,L).
+fahrt(S1,S2,L) :- liegen_flussaufwaerts(S1,S2), fahrt_aufwaerts(S1,S2,L).
+fahrt(S1,S2,L) :- liegen_flussabwaerts_flussaufwaerts(S1,S2,SE),
+fahrt_abwaerts(S1,SE,E1),
+fahrt_aufwaerts(SE,S2,E2),
+zusammenfuegen(E1,E2,L),
+
+nurPositiv([K|R]) :- 0 < K, R==[].
+nurPositiv([K|R]) :- 0 < K, nurPositiv(R).
+
+allePostiven([],[]).
+allePostiven([K|R],[K|R2]):- K>0,allePostiven(R,R2).
+allePostiven([K|R],R2):- K=<0,allePostiven(R,R2).
+
+alleNegativen([],[]).
+alleNegativen([K|R],[K|R2]):- K<0,alleNegativen(R,R2).
+alleNegativen([K|R],R2):- K>=0,alleNegativen(R,R2).
+
+alleErgebnisse(L,P,N) :- allePostiven(L,P), alleNegativen(L,N).

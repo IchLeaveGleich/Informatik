@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Fußballspiel>
+  <!-- Rahmendaten -->
+  <Heim>1. FC Kaiserslautern</Heim>
+  <Gast>1. FSV Mainz 05</Gast>
+  <Anstoß>
+    <Tag>17</Tag>
+    <Monat>9</Monat>
+    <Jahr>2011</Jahr>
+    <Uhrzeit>15:30</Uhrzeit>
+  </Anstoß>
+  <Ergebnis>
+    <ToreHeim>3</ToreHeim>
+    <ToreGast>1</ToreGast>
+  </Ergebnis>
+  <Schiedsrichter>
+    <Vorname>Wolfgang</Vorname>
+    <Name>Stark</Name>
+  </Schiedsrichter>
+  <!-- Aufstellungen -->
+  <Aufstellungen>
+      <AufstellungHeim>
+          <Spieler>Kevin Trap</Spieler>
+          <Spieler>Floarian Dick</Spieler>
+          <Spieler>Martin Admedick</Spieler>
+          <Spieler>Rodnei</Spieler>
+          <Spieler>Leo Jessen</Spieler>
+          <Spieler>Clemens Walch</Spieler>
+          <Spieler>Oliver Kirch</Spieler>
+          <Spieler>THanos Petsos</Spieler>
+          <Spieler>Christian Tiffert</Spieler>
+          <Spieler>Richard Sukutua-Pasu</Spieler>
+          <Spieler>Itay Shechter</Spieler>
+      </AufstellungHeim>
+      <AufstellungGast>
+          <Spieler>Heinz Mueller</Spieler>
+          <Spieler>Niko Bungert</Spieler>
+          <Spieler>Bo Svensson</Spieler>
+          <Spieler>Nikolce Noveski</Spieler>
+          <Spieler>Zdenek Pospech</Spieler>
+          <Spieler>Eugen Polanski</Spieler>
+          <Spieler>Elkin Soto</Spieler>
+          <Spieler>Marcel Risse</Spieler>
+          <Spieler>Maxim Choupo-Moting</Spieler>
+          <Spieler>Zoltan Stieber</Spieler>
+          <Spieler>Sami Allagui</Spieler>
+      </AufstellungGast>
+  </Aufstellungen>
+  <!-- Einwechslungen -->
+  <Einwechslungen>
+  <EinwechslungenHeim>
+      <Wechsel>
+          <Raus>
+     <Spieler>Clemens Walch</Spieler>
+ </Raus>
+ <Rein>
+     <Spieler>Dorge Kouemaha</Spieler>
+ </Rein>
+ </Wechsel>
+      <Wechsel>
+          <Raus>
+     <Spieler>Christian Tiffert</Spieler>
+ </Raus>
+ <Rein>
+     <Spieler>Pierre de Wit</Spieler>
+ </Rein>
+ </Wechsel>
+      <Wechsel>
+          <Raus>
+     <Spieler>Itay Shechter</Spieler>
+ </Raus>
+ <Rein>
+     <Spieler>Konstantinos Fortounis</Spieler>
+ </Rein>
+ </Wechsel>
+  </EinwechslungenHeim>
+  <EinwechslungenGast>
+      <Wechsel>
+          <Raus>
+     <Spieler>Zoltan Stieber</Spieler>
+ </Raus>
+ <Rein>
+     <Spieler>Jan Kirchhoff</Spieler>
+ </Rein>
+ </Wechsel>
+      <Wechsel>
+          <Raus>
+     <Spieler>Sami Allagui</Spieler>
+ </Raus>
+ <Rein>
+     <Spieler>Anothy Ujah</Spieler>
+ </Rein>
+ </Wechsel>
+      <Wechsel>
+          <Raus>
+     <Spieler>Eugen Polanksi</Spieler>
+ </Raus>
+ <Rein>
+     <Spieler>Andreas Ivanschitz</Spieler>
+ </Rein>
+ </Wechsel>
+  </EinwechslungenGast>
+  </Einwechslungen>
+  <!-- Spielverlauf/Tore -->
+  <Tore>
+      <Tor min=15>
+      <TorHeim>
+         0 
+      </TorHeim>
+      <TorGast>
+         1 
+      </TorGast>
+  </Tor>
+      <Tor min=24>
+      <TorHeim>
+         1 
+      </TorHeim>
+      <TorGast>
+         1 
+      </TorGast>
+  </Tor>
+      <Tor min=54>
+      <TorHeim>
+         2 
+      </TorHeim>
+      <TorGast>
+         1 
+      </TorGast>
+  </Tor>
+      <Tor min=73>
+      <TorHeim>
+         3 
+      </TorHeim>
+      <TorGast>
+         1 
+      </TorGast>
+  </Tor>
+  </Tore>
+  <!-- Spielverlauf/Karten -->
+  <Karten>
+      <KarteHeim>
+      </KarteHeim>
+      <KarteGast>
+      <Karte min=50, farbe=gelb>
+          <Spieler>
+              Jan Kirchhoff
+          </Spieler>
+      </Karte>
+      <Karte min=50, farbe=gelb>
+          <Spieler>
+              Anderas Ivanschitz
+          </Spieler>
+      </Karte>
+      </KarteGast>
+  </Karten>
+
+</Fußballspiel>
