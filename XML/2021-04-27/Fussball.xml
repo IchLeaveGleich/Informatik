@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<FuÃŸballspiel>
+<Fußballspiel>
   <!-- Rahmendaten -->
   <Heim>1. FC Kaiserslautern</Heim>
   <Gast>1. FSV Mainz 05</Gast>
-  <AnstoÃŸ>
+  <Anstoß>
     <Tag>17</Tag>
     <Monat>9</Monat>
     <Jahr>2011</Jahr>
     <Uhrzeit>15:30</Uhrzeit>
-  </AnstoÃŸ>
+  </Anstoß>
   <Ergebnis>
     <ToreHeim>3</ToreHeim>
     <ToreGast>1</ToreGast>
@@ -103,7 +103,7 @@
   </Einwechslungen>
   <!-- Spielverlauf/Tore -->
   <Tore>
-      <Tor min=15>
+      <Tor min="15">
       <TorHeim>
          0 
       </TorHeim>
@@ -111,7 +111,7 @@
          1 
       </TorGast>
   </Tor>
-      <Tor min=24>
+      <Tor min="24">
       <TorHeim>
          1 
       </TorHeim>
@@ -119,7 +119,7 @@
          1 
       </TorGast>
   </Tor>
-      <Tor min=54>
+      <Tor min="54">
       <TorHeim>
          2 
       </TorHeim>
@@ -127,7 +127,7 @@
          1 
       </TorGast>
   </Tor>
-      <Tor min=73>
+      <Tor min="73">
       <TorHeim>
          3 
       </TorHeim>
@@ -141,12 +141,12 @@
       <KarteHeim>
       </KarteHeim>
       <KarteGast>
-      <Karte min=50, farbe=gelb>
+      <Karte min="50" farbe="gelb">
           <Spieler>
               Jan Kirchhoff
           </Spieler>
       </Karte>
-      <Karte min=50, farbe=gelb>
+      <Karte min="50" farbe="gelb">
           <Spieler>
               Anderas Ivanschitz
           </Spieler>
@@ -154,4 +154,4 @@
       </KarteGast>
   </Karten>
 
-</FuÃŸballspiel>
+</Fußballspiel>
