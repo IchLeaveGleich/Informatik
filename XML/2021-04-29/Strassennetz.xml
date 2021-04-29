@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Strassennetz>
+    <Punkte>
+    <Punkt id="1" x="0" y="0" abkuerzung="TR" />
+    <Punkt id="2" x="0" y="0" abkuerzung="KO" />
+    <Punkt id="3" x="0" y="0" abkuerzung="RB" />
+    <Punkt id="4" x="0" y="0" abkuerzung="BI" />
+    <Punkt id="5" x="0" y="0" abkuerzung="KL" />
+    <Punkt id="6" x="0" y="0" abkuerzung="AZ" />
+    <Punkt id="7" x="0" y="0" abkuerzung="MZ" />
+    <Punkt id="8" x="0" y="0" abkuerzung="SP" />
+    <Punkt id="9" x="0" y="0" abkuerzung="FT" />
+</Punkte>
+<Strecken>
+    <Strecke start="1" ende="2" entfernung="128"/>
+    <Strecke start="1" ende="3" entfernung="98"/>
+    <Strecke start="1" ende="5" entfernung="116"/>
+    <Strecke start="2" ende="3" entfernung="54"/>
+    <Strecke start="3" ende="4" entfernung="24"/>
+    <Strecke start="4" ende="6" entfernung="35"/>
+    <Strecke start="5" ende="6" entfernung="33"/>
+    <Strecke start="6" ende="5" entfernung="128"/>
+    <Strecke start="1" ende="2" entfernung="128"/>
+    <Strecke start="1" ende="2" entfernung="128"/>
+    <Strecke start="1" ende="2" entfernung="128"/>
+    <Strecke start="1" ende="2" entfernung="128"/>
+</Strecken>
+</Strassennetz>
