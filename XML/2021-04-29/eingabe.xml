@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="iso-8859-1"?><Spielstand><Spieler id='0'>
+<Name>Rot</Name>
+<Figuren>
+<Figur id='0'>
+<Feld>10</Feld>
+</Figur>
+<Figur id='1'>
+<Feld>37</Feld>
+</Figur>
+<Figur id='2'>
+<Feld>14</Feld>
+</Figur>
+<Figur id='3'>
+<Feld>None</Feld>
+</Figur>
+</Figuren>
+</Spieler>
+<Spieler id='1'>
+<Name>Gelb</Name>
+<Figuren>
+<Figur id='0'>
+<Feld>None</Feld>
+</Figur>
+<Figur id='1'>
+<Feld>36</Feld>
+</Figur>
+<Figur id='2'>
+<Feld>None</Feld>
+</Figur>
+<Figur id='3'>
+<Feld>28</Feld>
+</Figur>
+</Figuren>
+</Spieler>
+<Spieler id='2'>
+<Name>Blau</Name>
+<Figuren>
+<Figur id='0'>
+<Feld>15</Feld>
+</Figur>
+<Figur id='1'>
+<Feld>7</Feld>
+</Figur>
+<Figur id='2'>
+<Feld>18</Feld>
+</Figur>
+<Figur id='3'>
+<Feld>31</Feld>
+</Figur>
+</Figuren>
+</Spieler>
+<Spieler id='3'>
+<Name>Grün</Name>
+<Figuren>
+<Figur id='0'>
+<Feld>None</Feld>
+</Figur>
+<Figur id='1'>
+<Feld>1</Feld>
+</Figur>
+<Figur id='2'>
+<Feld>19</Feld>
+</Figur>
+<Figur id='3'>
+<Feld>35</Feld>
+</Figur>
+</Figuren>
+</Spieler>
+</Spielstand>
