@@ -32,7 +32,7 @@ class Spieler(object):
             f.ausgabe()
         print("")
         print("")
-        
+
 
 
     def toXML(self):
@@ -49,11 +49,9 @@ class Spieler(object):
         dokument = parse("eingabe.xml")
         alleSpieler = dokument.getElementsByTagName("Spieler")
         for spieler in alleSpieler:
-            print(spieler.getAttribute("id"))
             if int(spieler.getAttribute("id")) == self.id:
-                #self.setName(spieler.firstChild.nodeValue)
-                #print(spieler.firstChild.nextSibling.nodeName)
-                print(spieler.getElementsByTagName("Name")[0].nodeName)
-            #for figur in self.figuren:
-            #   figur.fromXML()
-               
+                self.setName(spieler.getElementsByTagName("Name")[0].firstChild.nodeValue)
+                #print(spieler.getElementsByTagName("Name")[0].firstChild.nodeValue)
+            for figur in self.figuren:
+                figur.fromXML()
+

@@ -8,13 +8,13 @@ class Figur(object):
 
     def setFeld(self, feld):
         self.feld = feld
-        
+
     def ausgabe(self):
         if self.feld != None:
             feld = self.feld.id
         else:
-            feld = "None"
-        
+            feld = None
+
         print(self.id, self.spieler.id, feld)
         return([self.id, self.spieler.id, feld])
 
@@ -33,6 +33,6 @@ class Figur(object):
         dokument = parse("eingabe.xml")
         alleFigur = dokument.getElementsByTagName("Figur")
         for figur in alleFigur:
-           if int(figur.getAttribute("id")) == self.id:
-               self.setFeld(figur.firstChild.nodeValue)
-               print(figur.firstChild.nodeValue)
+            if int(figur.getAttribute("id")) == self.id:
+                self.setFeld(figur.getElementsByTagName("Feld")[0].firstChild.nodeValue)
+                #print(figur.getElementsByTagName("Feld")[0].firstChild.nodeValue)
