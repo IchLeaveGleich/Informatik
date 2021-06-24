@@ -1,0 +1,11 @@
+<graph id="0">
+    <node id="TR"/>
+    <node id="KO"/>
+    <node id="RB"/>
+    <node id="BI"/>
+    <edge source="TR" target="KO">
+        <data>
+            128
+        </data>
+    </edge>
+</graph>

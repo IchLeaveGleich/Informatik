@@ -1,0 +1,14 @@
+<!ELEMENT graph (node+, edge+)>
+<!ATTLIST graph
+  id CDATA #IMPLIED
+>
+<!ELEMENT node EMPTY>
+<!ATTLIST node
+  id CDATA #REQUIRED
+>
+<!ELEMENT edge (data)>
+<!ATTLIST edge
+  source CDATA #REQUIRED
+  target CDATA #REQUIRED
+>
+<!ELEMENT data (#PCDATA)>

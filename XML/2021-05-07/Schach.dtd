@@ -1,0 +1,11 @@
+<!ELEMENT Schach-Spielzustand (schwarz, weiss)>
+<!ELEMENT schwarz (Bauer*, Springer*, Laeufer*, Dame*, Koenig, amZug?)>
+<!ELEMENT weiss (Bauer*, Turm*, Springer*, Laeufer*, Dame*, Koenig, amZug?)>
+<!ELEMENT Bauer (#PCDATA)>
+<!ELEMENT Springer (#PCDATA)>
+<!ELEMENT Turm (#PCDATA)>
+<!ELEMENT Laeufer (#PCDATA)>
+<!ELEMENT Dame (#PCDATA)>
+<!ELEMENT Koenig (#PCDATA)>
+<!ELEMENT amZug EMPTY>
+

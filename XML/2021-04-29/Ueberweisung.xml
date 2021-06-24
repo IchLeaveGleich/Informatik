@@ -7,38 +7,38 @@
         </Bankleitzahl>
     </Kreditinstitut>
     <Beguenstigter>
-    <KontoNummer>
-    </KontoNummer>
-    <Bankleitzahl>
-    </Bankleitzahl>
-</Beguenstigter>
-<Betrag> 
-    <Waehrung>
-    </Waehrung>
-    <Euro>
-    </Euro>
-    <Cent>
-    </Cent>
-</Betrag> 
-<Spender>
-    <NameSpender>
-    </NameSpender>
-    <Anschrift>
-        <PLZ>
-        </PLZ>
-        <Strasse>
-        </Strasse>
-    </Anschrift>
-    <Kontoinhaber>
-    </Kontoinhaber>
-    <Kontonummer>
-    </Kontonummer>
-</Spender>
-<Bestaetigung>
-    <Datum>
-    </Datum>
-    <Unterschrift>
-    </Unterschrift>
-</Bestaetigung>
+        <KontoNummer>
+        </KontoNummer>
+        <Bankleitzahl>
+        </Bankleitzahl>
+    </Beguenstigter>
+    <Betrag> 
+        <Waehrung>
+        </Waehrung>
+        <Euro>
+        </Euro>
+        <Cent>
+        </Cent>
+    </Betrag> 
+    <Spender>
+        <NameSpender>
+        </NameSpender>
+        <Anschrift>
+            <PLZ>
+            </PLZ>
+            <Strasse>
+            </Strasse>
+        </Anschrift>
+        <Kontoinhaber>
+        </Kontoinhaber>
+        <Kontonummer>
+        </Kontonummer>
+    </Spender>
+    <Bestaetigung>
+        <Datum>
+        </Datum>
+        <Unterschrift>
+        </Unterschrift>
+    </Bestaetigung>
 </Ueberweisung>
 
