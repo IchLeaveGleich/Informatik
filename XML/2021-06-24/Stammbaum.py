@@ -1,7 +1,6 @@
 from xml.dom.minidom import *
-from datetime import datetime
-
-xmlQuelltext = """
+# Quelltext in einen DOM-Baum umwandeln
+xml_quelltext = """<?xml version="1.0" encoding="iso-8859-1"?>
 <Stammbaum>
 <Person Vorname="Joseph Wilhelm" Name="Peter" Geschlecht="m" Geboren="1926-12-02" Gestorben="1998-03" Geburtsort="Erfweiler" Sterbeort="Dahn" Index="1">
 <Person Vorname="Franz Josef" Name="Peter" Geschlecht="m" Geboren="1900-01-06" Gestorben="1968" Geburtsort="Busenberg" Sterbeort="Busenberg" Index="2">
@@ -16,11 +15,11 @@ xmlQuelltext = """
 </Person>
 </Person>
 <Person Vorname="Karolina" Name="Burkhart" Geschlecht="w" Geboren="1873-04-09" Gestorben="?" Geburtsort="Bruchweiler-BÃ¤renbach" Sterbeort="?" Index="5">
-<Person Vorname="Johannes Georg" Name="Burkhart" Geschlecht="m" Geboren="1835-10-16" Gestorben="v1899" Geburtsort="Bruchweiler-BÃ¤renbach" Sterbeort="Bruchweiler-BÃ¤renbach" Index="10">
-<Person Vorname="Markus" Name="Burkhart" Geschlecht="m" Geboren="~1809" Gestorben="1859-12-04" Geburtsort="Bruchweiler-BÃ¤renbach" Sterbeort="Bruchweiler-BÃ¤renbach" Index="20"> </Person>
+<Person Vorname="Johannes Georg" Name="Burkhart" Geschlecht="m" Geboren="1835-10-16" Gestorben="1899" Geburtsort="Bruchweiler-BÃ¤renbach" Sterbeort="Bruchweiler-BÃ¤renbach" Index="10">
+<Person Vorname="Markus" Name="Burkhart" Geschlecht="m" Geboren="1809" Gestorben="1859-12-04" Geburtsort="Bruchweiler-BÃ¤renbach" Sterbeort="Bruchweiler-BÃ¤renbach" Index="20"> </Person>
 <Person Vorname="Elisabetha" Name="Lieber" Geschlecht="w" Geboren="1814-11-15" Gestorben="1875-11-23" Geburtsort="Bruchweiler-BÃ¤renbach" Sterbeort="Bruchweiler-BÃ¤renbach" Index="21"> </Person>
 </Person>
-<Person Vorname="Anna Maria" Name="Zwick" Geschlecht="w" Geboren="1839-09-05" Gestorben="v1899" Geburtsort="Bruchweiler-BÃ¤renbach" Sterbeort="?" Index="11"> </Person>
+<Person Vorname="Anna Maria" Name="Zwick" Geschlecht="w" Geboren="1839-09-05" Gestorben="1899" Geburtsort="Bruchweiler-BÃ¤renbach" Sterbeort="?" Index="11"> </Person>
 </Person>
 </Person>
 <Person Vorname="Magdalena" Name="Burkhard" Geschlecht="w" Geboren="1902-02-13" Gestorben="1963-11" Geburtsort="Erfweiler" Sterbeort="Erfweiler" Index="3">
@@ -46,55 +45,77 @@ xmlQuelltext = """
 </Person>
 </Person>
 </Person>
-</Stammbaum>"""
+</Stammbaum> """
+document = parseString(xml_quelltext)
 
-def printByIndex(doc, inputIndex):
-    ausgabe = []
-    dokument = parseString(doc)
-    allePersonen = dokument.getElementsByTagName("Person")
-    for person in allePersonen:
-        index = person.getAttribute("Index")
-        if int(index) == inputIndex:
-            ausgabe.append(person.getAttribute("Vorname"))
-            ausgabe.append(person.getAttribute("Name"))
-            ausgabe.append(person.getAttribute("Geschlecht"))
-            ausgabe.append(person.getAttribute("Geboren"))
-            ausgabe.append(person.getAttribute("Gestorben"))
-            ausgabe.append(person.getAttribute("Geburtsort"))
-            ausgabe.append(person.getAttribute("Sterbeort"))
-            ausgabe.append(person.getAttribute("Index"))
-    return ausgabe
+ 
+            
+def personalIndex(doc,index):
+    kIndex = doc.getElementsByTagName("Person")
+    for person in kIndex:
+        if person.getAttribute("Index") == str(index):
+            return str(person.attributes.items())
+            
+
+def personalName(doc,name):
+    k = doc
+    kname = k.getElementsByTagName("Person")
+    personen = []
+    for person in kname:
+        if person.getAttribute("Name") == str(name):
+            info = str(person.getAttribute('Vorname'))
+            print(info)
+            personen.append(info)
+    return personen
+
+def statistikName(doc):
+    diction = {}
+    k = doc
+    kperson = k.getElementsByTagName("Person")
+    for person in kperson:       
+        if person.getAttribute('Name') in diction:
+            diction[person.getAttribute('Name')] = int(diction[person.getAttribute('Name')]) + 1
+        else:
+            diction[person.getAttribute('Name')] = 1
+    print(diction)
+    return diction      
+
+def statistikVorname(doc):
+    liste = []
+    k = doc
+    kperson = k.getElementsByTagName("Person")
+    for person in kperson:       
+        vorname = person.getAttribute("Vorname")
+        if vorname in liste:
+            liste[(liste.index(vorname)+1)] += 1
+        else:
+            liste += [vorname] + [1]
+    return  liste
+
+def statistikAlter(doc):
+    k = doc
+    mtotal = []
+    wtotal = []
+    kperson = k.getElementsByTagName("Person")
+    for person in kperson: 
+        geborenJahr = (person.getAttribute("Geboren")).split("-")[0]
+        gestorbenJahr = (person.getAttribute("Gestorben")).split("-")[0]
+
+        if geborenJahr != "?" and gestorbenJahr != "?": 
+            kalter = int(gestorbenJahr)-int(geborenJahr)
+            if person.getAttribute("Geschlecht")=="w":
+                wtotal += [kalter]
+            else:
+                mtotal += [kalter]
+
+    avgAlterM = sum(mtotal) / len(mtotal)
+    avgAlterW = sum(wtotal) / len(wtotal)
+    print("\n Weiblich: " , avgAlterW , "\n Männliche: ", avgAlterM)       
 
 
-def printByName(doc, inputName):
-    ausgabe = []
-    dokument = parseString(doc)
-    allePersonen = dokument.getElementsByTagName("Person")
-    for person in allePersonen:
-        name = person.getAttribute("Name")
-        if str(name) == inputName:
-            ausgabe.append(person.getAttribute("Vorname"))
-            ausgabe.append(person.getAttribute("Name"))
-            ausgabe.append(person.getAttribute("Geschlecht"))
-            ausgabe.append(person.getAttribute("Geboren"))
-            ausgabe.append(person.getAttribute("Gestorben"))
-            ausgabe.append(person.getAttribute("Geburtsort"))
-            ausgabe.append(person.getAttribute("Sterbeort"))
-            ausgabe.append(person.getAttribute("Index"))
-    return ausgabe
+#print(type(personalIndex(document,4)))
+#print(personalName(document,"Peter"))
+#print(statistikName(document))
+#print(statistikVorname(document))
+print(statistikAlter(document))
 
-def durschnittsalterPersonenNachGeschlechter(doc):
-    dokument = parseString(doc)
-    allePersonen = dokument.getElementsByTagName("Person")
-    for person in allePersonen:
-        geschlecht = person.getAttribute("Geschlecht")
-        geboren = person.getAttribute("Geboren")
-        gestorben = person.getAttribute("Gestorben")
-        gestorbenStriped = datetime.strptime(gestorben, "%Y-%m-%d")
-        geborenStriped = datetime.strptime(geboren, "%Y-%m-%d")
-        print(gestorbenStriped)
-    
-    
-printByIndex(xmlQuelltext,5)
-printByName(xmlQuelltext, "Peter")
-durschnittsalterPersonenNachGeschlechter(xmlQuelltext)
