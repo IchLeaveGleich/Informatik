@@ -22,10 +22,6 @@ class Spieler(object):
                 feld.setFigur(f)
                 f.setFeld(feld)
 
-    def setName(self, name):
-        self.name = name
-
-
     def ausgabe(self):
         print(self.name)
         for f in self.figuren:
@@ -33,7 +29,9 @@ class Spieler(object):
         print("")
         print("")
 
-
+    def getID(self):
+        return self.id
+        
 
     def toXML(self):
         code = "<Spieler id='" + str(self.id) + "'>\n"
@@ -45,13 +43,20 @@ class Spieler(object):
         code += "</Spieler>\n"
         return code
 
-    def fromXML(self):
-        dokument = parse("eingabe.xml")
-        alleSpieler = dokument.getElementsByTagName("Spieler")
-        for spieler in alleSpieler:
-            if int(spieler.getAttribute("id")) == self.id:
-                self.setName(spieler.getElementsByTagName("Name")[0].firstChild.nodeValue)
-                #print(spieler.getElementsByTagName("Name")[0].firstChild.nodeValue)
-            for figur in self.figuren:
-                figur.fromXML()
+    def fromXML(self, spielerXML):
+        self.figuren = []
+        figurenXML = spielerXML.getElementsByTagName('Figur')
+        for figur in figurenXML:
+            neueFigur = Figur(figur.getAttribute('id'), self)
+            self.figuren.append(neueFigur)
+            neueFigur.fromXML(figur,self.spielfeld)
+
+        """
+     for spieler in spielerXML:
+            neuerSpieler = Spieler(spieler.getElementsByTagName('Name')[0], self, spieler.getAttribute('id'))
+            self.spieler.append(neuerSpieler)
+            neuerSpieler.fromXML(spieler)
+            #print(spieler.getElementsByTagName('Name')[0].firstChild.nodeValue, spieler.getAttribute('id'))
+"""
+
 

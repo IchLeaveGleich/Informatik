@@ -10,5 +10,8 @@ class Feld(object):
     def setFigur(self, figur):
         self.figur = figur
 
+    def getID(self):
+        return self.id
+
     def frei(self):
         return self.figur == None

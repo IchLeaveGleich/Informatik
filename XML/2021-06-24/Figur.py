@@ -6,15 +6,15 @@ class Figur(object):
         self.spieler = spieler
         self.feld = None
 
-    def setFeld(self, feld):
+    def setFeld(self,feld):
         self.feld = feld
 
     def ausgabe(self):
         if self.feld != None:
             feld = self.feld.id
         else:
-            feld = None
-
+            feld = "None"
+        
         print(self.id, self.spieler.id, feld)
         return([self.id, self.spieler.id, feld])
 
@@ -26,13 +26,18 @@ class Figur(object):
         else:
             code += str(self.feld.id)
         code += "</Feld>\n"
-        code += "</Figur>\n"
+        code += "</Figur>"
         return code
 
-    def fromXML(self):
-        dokument = parse("eingabe.xml")
-        alleFigur = dokument.getElementsByTagName("Figur")
-        for figur in alleFigur:
-            if int(figur.getAttribute("id")) == self.id:
-                self.setFeld(figur.getElementsByTagName("Feld")[0].firstChild.nodeValue)
-                #print(figur.getElementsByTagName("Feld")[0].firstChild.nodeValue)
+    def fromXML(self, figurXML, spielfeld):
+        
+        feldIdStr = figurXML.getElementsByTagName('Feld')[0].firstChild.nodeValue
+        if feldIdStr != "None":
+            self.feld = spielfeld.getFeldById(int(feldIdStr))
+        else:
+            self.feld = None
+
+
+
+
+

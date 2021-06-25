@@ -1,6 +1,9 @@
 from Feld import *
 from Spieler import *
 from xml.dom.minidom import *
+from xml.dom import minidom
+
+document = minidom.parse('xml-spielstand.xml')
 
 
 class Spielfeld(object):
@@ -32,6 +35,12 @@ class Spielfeld(object):
     def ausgabe(self):
         for s in self.spieler:
             s.ausgabe()
+    
+    def getFeldById(self, feldId):
+        for f in self.felder:
+            if f.getID() == feldId:
+                return f
+        return None
 
     def toXML(self):
         file = open("ausgabe.xml", "w")
@@ -41,20 +50,31 @@ class Spielfeld(object):
         file.write('</Spielstand>')
         file.close()
 
-    def fromXML(self):
-        for spieler in self.spieler:
-            spieler.fromXML()
-        
-        
+    def fromXML(self, doc):
+        self.spieler = []
+        self.felder = []
+        for i in range(40):
+            self.felder.append(Feld(i))
 
-#				<Feld>15<Feld>
-#			</Figur>
-#		</Figuren>
-##	</Spieler> </Spielstand>'''
-        
+        i = -1
+        while i < len(self.felder)-2:
+            self.felder[i].setNextFeld(self.felder[i+1])
+            i += 1
+            
+        spielerXML = doc.getElementsByTagName('Spieler')
+        for spieler in spielerXML:
+            neuerSpieler = Spieler(spieler.getElementsByTagName('Name')[0].firstChild.nodeValue, self, spieler.getAttribute('id'))
+            self.spieler.append(neuerSpieler)
+            neuerSpieler.fromXML(spieler)
+            #print(spieler.getElementsByTagName('Name')[0].firstChild.nodeValue, spieler.getAttribute('id'))
 
 
 s = Spielfeld()
 s.makeSpielfeld()
 s.ausgabe()
-s.fromXML()
+#s.toXML()
+s.fromXML(document)
+s.ausgabe()
+#s.toXML()
+
+
